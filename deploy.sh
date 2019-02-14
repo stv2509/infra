@@ -3,7 +3,7 @@
 echo "Start install app"
 
 git clone https://github.com/stv2509/infra.git
-cd infra && bundle install
+cd infra && bundle update sinatra && bundle instal
 puma -d
 
 if ps aux | grep puma | grep -v grep
