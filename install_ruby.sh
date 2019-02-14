@@ -9,6 +9,9 @@ rvm requirements
 rvm install 2.4
 rvm use 2.4.5 --default
 gem install bundler -V --no-ri --no-rdoc
+source /home/appuser/.rvm/scripts/rvm
+
+
 
 if ruby -v | grep "ruby 2.4"
 then
