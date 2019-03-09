@@ -1,0 +1,17 @@
+asn1crypto
+bcrypt
+cffi
+cryptography
+enum34
+idna
+ipaddress
+Jinja2
+MarkupSafe
+paramiko
+pyasn1
+pycparser
+pycrypto
+PyNaCl
+PyYAML
+six
+netmiko
