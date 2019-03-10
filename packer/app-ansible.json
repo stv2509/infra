@@ -22,7 +22,7 @@
 "provisioners": [
 	{
 	"type": "ansible",
-	"playbook_file": "../ansible/reddit_app-1.yml"
+	"playbook_file": "../ansible/packer_reddit_app.yml"
 	}
 
 ]
