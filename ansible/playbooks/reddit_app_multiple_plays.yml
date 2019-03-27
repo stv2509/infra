@@ -2,10 +2,10 @@
   hosts: db
   tags: db-tag
   become: true
-  
+
   vars:
     mongo_bind_ip: 0.0.0.0
-  
+
   tasks:
     - name: Change mongo config file
       template:
@@ -13,7 +13,7 @@
         dest: /etc/mongod.conf
         mode: 0644
       notify: restart mongod
-      
+
   handlers:
     - name: restart mongod
       become: true
@@ -42,7 +42,7 @@
 
     - name: enable puma
       systemd: name=puma enabled=yes
-  
+
   handlers:
     - name: reload puma
       systemd: name=puma state=restarted
@@ -63,9 +63,8 @@
       bundler:
         state: present
         chdir: /home/appuser/reddit
-        
-  handlers: 
+
+  handlers:
     - name: restart puma
       become: true
       systemd: name=puma state=restarted
-   
