@@ -1,4 +1,7 @@
-# Homework 3. Практика работы с Git и GitHub
+[![Build Status](https://travis-ci.com/stv2509/infra.svg?branch=master)](https://travis-ci.com/stv2509/infra)
+
+
+# Homework 3. Practice working with Git and Github
 
 ## В процессе сделано:
 
@@ -32,7 +35,7 @@ export PS1="\033[00;32;1m\u@\h \033[00m\]\033[00;33;1m\W \033[00m\]\[\033[00;36;
 </details>
 
 #
-# Homework 5. Знакомство с облачной инфраструктурой. Google Cloud Platform
+# Homework 5. Introduction Cloud Infrastructure. Google Cloud Platform
 
 ## В процессе сделано:
 
@@ -122,4 +125,45 @@ appuser@bastion:~$ sudo bash setupvpn.sh
 Открываем в браузере ссылку: [https://<адрес bastionVM>/setup](https://cloud.google.com)
 [Создаем организацию и пользователя](https://docs.pritunl.com/v1/docs/connecting)
 На вкладке *Users*  справа от имени пользователя скачиваем конфигурационный файл .openvpn
+</details>
 
+#
+# Homework 6. Deploy test application
+
+### В процессе сделано:
+- Установлен и настроен **gcloud** для работы с нашим аккаунтом
+- Создали хост с помощью **gcloud**
+- Установили на нем ruby для работы приложения
+- Установили и запустили MongoDB
+- Развернули тестовое приложение, запустили и проверили его работу
+
+### Как запустить проект:
+
+- [Установите Google Cloud SDK](https://cloud.google.com/sdk/docs/)
+
+- Подклучение к аккуанту
+```bash
+$ gcloud init
+Welcome! This command will take you through the configuration of gcloud.
+```
+Проверить установку и настройку gcloud можно, используя команду **gcloud info** или **gcloud auth list**
+
+- [Создадим instance](https://gist.githubusercontent.com/stv2509/a091d96977ceb7afb221f91277e69fad/raw/52d896086eccafa4e509bd8d72b44831c2c5c1a8/gcloud_test)
+```bash
+Created [https://www.googleapis.com/compute/v1/projects/infra-232512/zones/europe-west1-b/instances/reddit-app].
+NAME        ZONE            MACHINE_TYPE  PREEMPTIBLE  INTERNAL_IP    EXTERNAL_IP    STATUS
+reddit-app  europe-west1-b  g1-small                   10.132.15.192  35.233.74.235  RUNNING
+```
+
+- Подключемся к instance 35.233.74.235 по SSH и запустим подготовленные scripts:
+  - скрипт install_ruby.sh - содержит команды по установке руби.
+  - скрипт install_mongodb.sh - содержить команды по установке MongoDB
+  - скрипт deploy.sh - содержит команды скачивания кода, установки зависимостей через bundler и запуск приложения.
+  - создать правило файервола в GCP и открыть порт tcp:9292
+  
+- Проверим работоспособность приложения прейдя по ссылке *http://35.233.74.235:9292/*
+
+
+testapp_IP = 35.233.74.235
+
+testapp_port = 9292
