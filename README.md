@@ -31,7 +31,7 @@ export PS1="\033[00;32;1m\u@\h \033[00m\]\033[00;33;1m\W \033[00m\]\[\033[00;36;
 ```
 </details>
 
-
+#
 # Homework 5. Знакомство с облачной инфраструктурой. Google Cloud Platform
 
 ## В процессе сделано:
@@ -89,7 +89,7 @@ bastion_IP = 35.198.167.169
 someinternalhost_IP = 10.156.0.3
 </details>
 
-#
+
 <details>
   <summary>Создаем VPN-сервер для серверов GCP:</summary>
 
@@ -112,8 +112,14 @@ EOF
 
 appuser@bastion:~$ sudo bash setupvpn.sh
 ```
+
 - Открываем в браузере ссылку: [https://<адрес bastionVM>/setup](https://cloud.google.com)
 
 - [Создаем организацию и пользователя](https://docs.pritunl.com/v1/docs/connecting)
 
 - На вкладке *Users*  справа от имени пользователя скачиваем конфигурационный файл .openvpn
+
+Открываем в браузере ссылку: [https://<адрес bastionVM>/setup](https://cloud.google.com)
+[Создаем организацию и пользователя](https://docs.pritunl.com/v1/docs/connecting)
+На вкладке *Users*  справа от имени пользователя скачиваем конфигурационный файл .openvpn
+
