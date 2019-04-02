@@ -1,5 +1,0 @@
-[app]
-appserver ansible_ssh_host=34.76.12.8
-
-[db]
-dbserver ansible_ssh_host=35.233.93.194
