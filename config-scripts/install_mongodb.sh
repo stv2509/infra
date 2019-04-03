@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Start Install MongoDB"
+echo "###############- Start Install MongoDB -###############"
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 sudo bash -c 'echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.0 multiverse" > /etc/apt/sources.list.d/mongodb-org-4.0.list'
@@ -11,9 +11,10 @@ sudo systemctl enable mongod
 
 if sudo systemctl status mongod | grep "active (running)"
 then
-	echo "SUCCESS: MongoDB installed and running"
+        echo "SUCCESS: MongoDB installed and running"
 else
-	echo "ERROR: MongoDB not active"
+        echo "ERROR: MongoDB not active" >> /home/appuser/install.log
 fi
 
-echo "Finish Install MongoDB"
+echo "###############- Finish Install MongoDB -###############"
+
