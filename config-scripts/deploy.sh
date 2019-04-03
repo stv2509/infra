@@ -1,14 +1,14 @@
 #!/bin/bash
 
-echo "Start install app"
+echo "###############- Start install app -###############"
 
-git clone https://github.com/stv2509/infra.git
-cd infra && bundle update sinatra && bundle install
+git clone -b monolith https://github.com/express42/reddit.git
+cd reddit && bundle update sinatra && bundle install
 puma -d
 
 if ps aux | grep puma | grep -v grep
 then
-	echo "SUCCESS: Reddit application up and running"
+        echo "SUCCESS: Reddit application up and running"
 else
-	echo "ERROR: Reddit application failed to start"
-fi
+        echo "ERROR: Reddit application failed to start"
+
