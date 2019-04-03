@@ -1,7 +1,7 @@
 { 
 "variables": {
 	"proj_id": null,
-	"source_image": null,
+	"source_image_family": null,
         "machine_type": "f1-micro"
 },
 
@@ -11,7 +11,8 @@
 	"type": "googlecompute",
 	"project_id": "{{user `proj_id`}}",
 	"image_name": "reddit-base-{{timestamp}}",
-	"source_image": "{{user `source_image`}}",
+	"image_family": "reddit-base",
+	"source_image_family": "{{user `source_image_family`}}",
 	"zone": "europe-west1-b",
 	"ssh_username": "appuser",
 	"machine_type": "{{user `machine_type`}}"
