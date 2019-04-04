@@ -19,12 +19,16 @@ variable sshuser {
   description = "SSH USER"
 }
 
+variable disk_image {
+  description = "Disk image"
+}
+
 variable app_disk_image {
   description = "Disk image for reddit app"
-  default     = "reddit-app-ansible-1552152319"
+  default     = "reddit-app-1551563575"
 }
 
 variable db_disk_image {
   description = "Disk image for reddit db"
-  default     = "reddit-db-ansible-1551875383"
+  default     = "reddit-db-1551564810"
 }
