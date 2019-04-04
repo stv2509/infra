@@ -1,6 +1,6 @@
 provider "google" {
-  project = "infra-232512"
-  region  = "europe-west1"
+  project = "${var.project}"
+  region  = "${var.region}"
 }
 
 resource "google_compute_instance" "app" {
@@ -11,9 +11,9 @@ resource "google_compute_instance" "app" {
 
   connection {
     type        = "ssh"
-    user        = "appuser"
+    user        = "${var.sshuser}"
     agent       = false
-    private_key = "${file("~/.ssh/appuser")}"
+    private_key = "${file(var.private_key)}"
   }
 
   # Копирование файла с локальной машины в облако
@@ -30,7 +30,7 @@ resource "google_compute_instance" "app" {
   # определение загрузочного диска
   boot_disk {
     initialize_params {
-      image = "reddit-base-1551390627"
+      image = "${var.disk_image}"
     }
   }
 
@@ -44,7 +44,7 @@ resource "google_compute_instance" "app" {
   }
 
   metadata {
-    sshKeys = "appuser:${file("~/.ssh/appuser.pub")}"
+    sshKeys = "${var.sshuser}:${file(var.public_key_path)}"
   }
 }
 
