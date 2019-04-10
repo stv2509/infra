@@ -199,11 +199,11 @@ testapp_port = 9292
   
   - **Проверка шаблона на ошибки:**
   ```bash
-  $ packer validate  -var-file=variables.json ubuntu16.json
+  $ packer validate -var-file=variables.json ubuntu16.json
   ```
   - **Запуск build образа:**
   ```bash
-  $ packer build packer validate  -var-file=variables.json ubuntu16.json
+  $ packer build -var-file=variables.json ubuntu16.json
   ```
   - **packer/files/startup_puma.sh** - содержить команды install_ruby.sh, install_mongodb.sh и deploy.sh
   
